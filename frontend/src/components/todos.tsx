@@ -1,4 +1,4 @@
-import React, { useState, useEffect, use } from "react";
+import React, { useState, useEffect,  } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 import { url } from "../url/url";
@@ -159,7 +159,7 @@ const Todo: React.FC = () => {
                 <div
                   key={todo.id}
                   className={`bg-white shadow-lg rounded-lg p-6 transition-all duration-200 hover:shadow-xl ${
-                    todo.done ? "opacity-75 border-l-4 border-green-500" : ""
+                    todo.done ? "opacity-75 border-l-4 border-green-500 " : ""
                   }`}
                 >
                   {editingTodoId === todo.id ? (
@@ -218,7 +218,7 @@ const Todo: React.FC = () => {
                         )}
                         <button
                           onClick={() => startEditing(todo)}
-                          className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 "
                         >
                           Edit
                         </button>
@@ -254,4 +254,4 @@ const Todo: React.FC = () => {
   );
 };
 
-export default Todo;
+export default Todo; 

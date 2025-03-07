@@ -52,7 +52,7 @@ router.post("/signup",async (req:any,res:any)=>{
         const token = jwt.sign({id:newUser.id,name:newUser.name},secret);
 
         res.cookie("token",token,{
-            httpOnly:true,
+            
             maxAge:3600000*24
         })
         
@@ -114,7 +114,6 @@ router.post("/signin",async (req:any,res:any)=>{
 router.post('/logout', (req, res) => {
     // Clear the cookie
     res.clearCookie('token', {
-        httpOnly: true,
         sameSite: 'lax', // or 'strict' depending on your needs
         path: '/', // make sure to use the same path as the one used for setting the cookie
     });

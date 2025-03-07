@@ -1,14 +1,19 @@
 // src/components/SignIn.tsx
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useSetAtom } from 'jotai';
 import {user} from '../store/atoms'
 import {url} from '../url/url'
 
+
+
+
 const SignIn: React.FC = () => {
+  
   const setUser = useSetAtom(user);
+  
   const Nav = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
@@ -73,6 +78,10 @@ const SignIn: React.FC = () => {
       setLoading(false);
     }
   };
+
+ 
+
+ 
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">

@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import axios from 'axios';
-import { user,token} from '../store/atoms';
+import { user} from '../store/atoms';
 import { useSetAtom, useAtomValue } from 'jotai';
-import Cookies from 'js-cookie';
 import { url } from '../url/url';
 
 
+
 const Navbar: React.FC = () => {
+
+  
+  
   const setUser = useSetAtom(user);
-  const mytoken = useAtomValue(token)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   const currentUser = useAtomValue<any>(user); // Get the current user state
@@ -28,17 +30,18 @@ const Navbar: React.FC = () => {
         });
 
         console.log(res.data);
+        navigate("/");
         setUser(res.data.name);
       } catch (err) {
-        console.error('Error fetching user:', err);
+       navigate("/login");
       } finally {
         setLoading(false);
       }
     };
 
     fetchUser();
-    console.log(Cookies.get("token"))
-  }, [mytoken]); 
+    
+  }, []); 
 
   const handleLogout = async () => {
     try {
